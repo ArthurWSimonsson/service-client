@@ -1,4 +1,6 @@
 const {graphiqlFastify, graphqlFastify} = require('fastify-graphql');
+require("dotenv").config();
+
 const fastify = require('fastify')({
 	logger: true
 })

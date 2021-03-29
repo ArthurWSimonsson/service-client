@@ -19,8 +19,9 @@ const routes = async (app, options) => {
         catch(err) {
             reply.code(400).send({
                 status:400,
-                msg: 'Client not found',
-                error: err
+                msg: 'Client error',
+                error: err,
+                message: err.message
             })
         }
     })
