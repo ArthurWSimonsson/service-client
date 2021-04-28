@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+// Client schema
 const clientSchema = new mongoose.Schema({
     clientNr: {
         type: Number,

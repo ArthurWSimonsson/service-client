@@ -1,5 +1,6 @@
 const clientController = require('../controllers/clientController')
 
+// Route handling requests towards the client service
 const routes = async (app, options) => {
     app.get('/api/client/:id', async (request, reply) => {
         try {

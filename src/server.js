@@ -11,7 +11,7 @@ fastify.register(require('./routes/clientRoutes'))
 const mongoose = require('mongoose')
 
 mongoose
-	.connect('mongodb+srv://dbuser:9imewgrsoR2ZqdyQ@cluster0.suofv.mongodb.net/client?retryWrites=true&w=majority')
+	.connect(process.env.DB_CONNECT)
 	.then(() => console.log('MongoDB connected...'))
 	.catch(err => console.log(err))
 
