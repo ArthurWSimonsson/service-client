@@ -4,8 +4,10 @@ const clientController = require('../controllers/clientController')
 const routes = async (app, options) => {
     app.get('/api/client/:id', async (request, reply) => {
         try {
-            var id = request.params.id
-            const client = await clientController.findClientUUID(id)
+            let id = request.params.id
+            if(id == 2)
+                throw "error when id is 2";
+            let client = await clientController.findClientUUID(id)
 
             if(!client) {
                 client = await clientController.createClient(id)
@@ -19,7 +21,7 @@ const routes = async (app, options) => {
         }
         catch(err) {
             reply.code(400).send({
-                status:400,
+                status: 400,
                 msg: 'Client error',
                 error: err,
                 message: err.message
