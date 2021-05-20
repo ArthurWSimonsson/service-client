@@ -28,6 +28,23 @@ const routes = async (app, options) => {
             })
         }
     })
+
+    app.delete('/api/client/', async(request, reply) => {
+        try {
+            await clientController.deleteClient(request.body.clientNr);
+            reply.send({
+                status: 200,
+                msg: "client deleted"
+            })
+        }
+        catch(err) {
+            reply.code(400).send({
+                status: 400,
+                msg: 'Client error',
+                error: err
+            })
+        }
+    })
 }
 
 module.exports = routes

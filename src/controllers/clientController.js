@@ -5,7 +5,7 @@ exports.findClientUUID = async(clientId) => {
     console.log('invoiceController.findClientUUID triggered')
 
     let client = await Client.findOne({clientNr: clientId})
-    console.log('client', client)
+    // console.log('client', client)
     return client
 }
 
@@ -15,12 +15,13 @@ exports.createClient = async (clientId) => {
         clientNr: clientId,
         clientUUID: generateUUID()
     }
-
-    console.log('do you enter')
-
     let result = await Client(client).save()
 
     return result
+}
+
+exports.deleteClient = async (clientId) => {
+    await Client.deleteOne({clientNr: clientId})
 }
 
 // Generates a random UUID

@@ -1,6 +1,4 @@
-const fastify = require('./server.js')
-const gql = require('fastify-gql')
-
+const fastify = require('./src/server.js')
 
 const start = async () => {
     try {
